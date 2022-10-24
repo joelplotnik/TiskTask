@@ -7,11 +7,29 @@ const User = mongoose.model('User', {
   age: { type: Number },
 });
 
-const me = new User({ name: 'Joel', age: 37 });
-me.save()
+const Task = mongoose.model('Task', {
+  description: { type: String },
+  completed: { type: Boolean },
+});
+
+// const me = new User({ name: 'Joel', age: 37 });
+// me.save()
+//   .then(() => {
+//     console.log(me);
+//   })
+//   .catch((error) => {
+//     console.log('Error!', error);
+//   });
+
+const task = new Task({
+  description: 'Learn the Mongoose library',
+  completed: false,
+});
+task
+  .save()
   .then(() => {
-    console.log(me);
+    console.log(task);
   })
   .catch((error) => {
-    console.log('Error!', error);
+    console.log(error);
   });
