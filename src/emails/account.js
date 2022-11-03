@@ -21,6 +21,23 @@ const sendWelcomeEmail = (email, name) => {
     });
 };
 
+const sendCancelationEmail = (email, name) => {
+  sgMail
+    .send({
+      to: email,
+      from: 'joelplotnik@gmail.com',
+      subject: 'Good Bye!',
+      text: `Good bye, ${name}. I hope to see you back soon.`,
+    })
+    .then(() => {
+      console.log('Email sent');
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+};
+
 module.exports = {
   sendWelcomeEmail,
+  sendCancelationEmail,
 };
